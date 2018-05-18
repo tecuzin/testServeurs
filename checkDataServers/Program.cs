@@ -10,6 +10,13 @@ namespace checkDataServers
         {
             Console.WriteLine("Vérification du status des sites de test");
 
+            var Lignes = System.IO.File.ReadAllLines("Questions.txt");
+
+            for (int i = 2; i < Lignes.Length - 1; i++) // De la ligne 3 a la dernière
+            {
+                Console.WriteLine(Lignes[i]);
+                Console.WriteLine(WebSiteIsAvailable(Lignes[i]);
+            }
 
         }
 
