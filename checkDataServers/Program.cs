@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 
 namespace checkDataServers
@@ -9,7 +10,14 @@ namespace checkDataServers
         {
             Console.WriteLine("Vérification du status des sites de test");
 
-            var Lignes = System.IO.File.ReadAllLines("urls.txt");
+            try
+            {
+                var Lignes = System.IO.File.ReadAllLines("urls.txt");
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Liste des URL manquante !");
+            }
 
             for (int i = 1; i < Lignes.Length - 1; i++) // De la ligne 2 a la dernière
             {
