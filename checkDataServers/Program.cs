@@ -10,13 +10,15 @@ namespace checkDataServers
         {
             Console.WriteLine("Vérification du status des sites de test");
 
+            string[] Lignes = null;
+
             try
             {
-                var Lignes = System.IO.File.ReadAllLines("urls.txt");
+                Lignes = File.ReadAllLines("urls.txt");
             }
-            catch (IOException e)
+            catch (FileNotFoundException)
             {
-                Console.WriteLine("Liste des URL manquante !");
+                Console.WriteLine("T'as oublié la liste des URL !");
             }
 
             for (int i = 1; i < Lignes.Length - 1; i++) // De la ligne 2 a la dernière
