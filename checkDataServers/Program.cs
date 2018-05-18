@@ -1,6 +1,5 @@
 ﻿using System;
-using 
-
+using System.Net;
 
 namespace checkDataServers
 {
@@ -10,17 +9,16 @@ namespace checkDataServers
         {
             Console.WriteLine("Vérification du status des sites de test");
 
-            var Lignes = System.IO.File.ReadAllLines("Questions.txt");
+            var Lignes = System.IO.File.ReadAllLines("urls.txt");
 
-            for (int i = 2; i < Lignes.Length - 1; i++) // De la ligne 3 a la dernière
+            for (int i = 1; i < Lignes.Length - 1; i++) // De la ligne 2 a la dernière
             {
                 Console.WriteLine(Lignes[i]);
-                Console.WriteLine(WebSiteIsAvailable(Lignes[i]);
+                Console.WriteLine(value: WebSiteIsAvailable(Lignes[i]));
             }
-
         }
 
-        public override bool WebSiteIsAvailable(string Url)
+        public static bool WebSiteIsAvailable(string Url)
         {
             string Message = string.Empty;
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(Url);
